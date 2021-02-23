@@ -1,9 +1,5 @@
 ::StoryData
 {
-    "ifid": "",
-    "format": "SugarCube 2",
-    "format-version": "3.1.0",
-    "start": "Start"
 }
 
 ::StoryTitle
