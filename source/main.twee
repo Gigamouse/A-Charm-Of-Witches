@@ -2,15 +2,7 @@
 {
         "ifid": "BAA3E610-704A-4549-99D7-D656FB542A8F"
 }
-::MyCoolStylesheet [stylesheet]
-
-body {
-  background: #eee;
-}
-
-tw-passage tw-link {
-  color: red;
-}
+::@include ACOW-Stylesheet.tw2
 
 ::StoryTitle
 This is a Test File Testing
