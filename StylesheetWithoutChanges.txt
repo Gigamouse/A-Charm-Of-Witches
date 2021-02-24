@@ -1,0 +1,946 @@
+::ACOW Stylesheet [stylesheet]
+
+body {
+}
+
+tw-passage tw-link {
+}
+
+/*
+	SugarCube 2.0 Default structural styles.
+*/
+html {
+	/*
+		We define the base font size and line height here as they affect the layout
+		of the base page elements (i.e. `#ui-bar`, `#ui-dialog`, and `#story`).
+	*/
+	font: 16px/1 Helmet, Freesans, sans-serif;
+}
+
+/* Story data styling. */
+#store-area, tw-storydata {
+	display: none !important;
+	z-index: 0;
+}
+
+/* Special no transition styling. */
+.no-transition {
+	transition: none !important;
+}
+
+
+/*
+	Fullscreen appearance styles.
+*/
+*:fullscreen { /* Cause Blink/WebKit to behave like Gecko. */
+	height: 100%;
+	width: 100%;
+}
+body::-ms-backdrop { /* Prevent IE 11 from hiding the `body` element's background. */
+	background: none;
+}
+
+
+/*
+	Sugarcube 2.0 Display Default appearance styles.
+*/
+*:focus {
+	outline: thin dotted;
+}
+*:disabled {
+	cursor: not-allowed !important;
+}
+body {
+	color: #eee;
+	background-color: #111;
+	overflow: auto;
+}
+a {
+	cursor: pointer;
+	color: #68d;
+	text-decoration: none;
+	transition-duration: 200ms;
+}
+a:hover {
+	color: #8af;
+	text-decoration: underline;
+}
+a.link-broken {
+	color: #c22;
+}
+a.link-broken:hover {
+	color: #e44;
+}
+a[disabled], span.link-disabled {
+	color: #aaa;
+	cursor: not-allowed !important;
+	/*
+		NOTE: Do not use `pointer-events` here as it disables
+		the display of a cursor in some browsers.
+
+		pointer-events: none;
+	*/
+	text-decoration: none;
+}
+area {
+	cursor: pointer;
+}
+button {
+	cursor: pointer;
+	color: #eee;
+	background-color: #35a;
+	border: 1px solid #57c;
+	line-height: normal;
+	padding: 0.4em;
+	transition-duration: 200ms;
+	user-select: none;
+}
+button:hover {
+	background-color: #57c;
+	border-color: #79e;
+}
+button:disabled {
+	background-color: #444;
+	border: 1px solid #666;
+}
+input, select, textarea {
+	color: #eee;
+	background-color: transparent;
+	border: 1px solid #444;
+	padding: 0.4em;
+}
+select {
+	padding: 0.34em 0.4em;
+}
+input[type="text"] {
+	min-width: 18em;
+}
+textarea {
+	min-width: 30em;
+	resize: vertical;
+}
+input[type="checkbox"], input[type="file"], input[type="radio"], select {
+	cursor: pointer;
+}
+/* BEGIN: input[type="range"] */
+input[type="range"] {
+	-webkit-appearance: none;
+	min-height: 1.2em;
+}
+input[type="range"]:focus {
+	outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+	cursor: pointer;
+	height: 10px;
+	width: 100%;
+}
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 18px;
+	/*
+		NOTE: Ideally, `margin-top` should be `0` for Edge/Spartan (ca. v17), but
+		real WebKit/Blink-based browsers need it.  Since there's more of them and
+		Edge is co-opting the prefix anyway, we cater to them.  Edge will simply
+		have to look ever so slightly off.
+	*/
+	margin-top: -5px;
+	width: 33px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+	background: #222;
+}
+input[type="range"]::-moz-range-track {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+	cursor: pointer;
+	height: 10px;
+	width: 100%;
+}
+input[type="range"]::-moz-range-thumb {
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 18px;
+	width: 33px;
+}
+input[type="range"]::-ms-track {
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+	cursor: pointer;
+	height: 10px;
+	width: calc(100% - 1px);
+}
+input[type="range"]::-ms-fill-lower {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+}
+input[type="range"]::-ms-fill-upper {
+	background: #222;
+	border: 1px solid #444;
+	border-radius: 0;
+}
+input[type="range"]::-ms-thumb {
+	background: #35a;
+	border: 1px solid #57c;
+	border-radius: 0;
+	cursor: pointer;
+	height: 16px;
+	width: 33px;
+}
+/* END: input[type="range"] */
+input:not(:disabled):focus, select:not(:disabled):focus, textarea:not(:disabled):focus,
+input:not(:disabled):hover, select:not(:disabled):hover, textarea:not(:disabled):hover {
+	background-color: #333;
+	border-color: #eee;
+}
+hr {
+	display: block;
+	height: 1px;
+	border: none;
+	border-top: 1px solid #eee;
+	margin: 1em 0;
+	padding: 0;
+}
+audio, canvas, progress, video {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.error-view {
+	background-color: #511;
+	border-left: 0.5em solid #c22;
+	display: inline-block;
+	margin: 0.1em;
+	max-width: 100%;
+	padding: 0 0.25em;
+	position: relative;
+}
+.error-view > .error-toggle {
+	background-color: transparent;
+	border: none;
+	line-height: inherit;
+	left: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	width: 1.75em;
+}
+.error-view > .error {
+	display: inline-block;
+	margin-left: 0.25em;
+}
+.error-view > .error-toggle + .error {
+	margin-left: 1.5em;
+}
+.error-view > .error-source[hidden] {
+	display: none;
+}
+.error-view > .error-source:not([hidden]) {
+	background-color: rgba(0, 0, 0, 0.2);
+	display: block;
+	margin: 0 0 0.25em;
+	overflow-x: auto;
+	padding: 0.25em;
+}
+
+.highlight, .marked {
+	color: yellow;
+	font-weight: bold;
+	font-style: italic;
+}
+.nobr {
+	white-space: nowrap;
+}
+
+[data-icon]:before,
+[data-icon-before]:before,
+[data-icon-after]:after,
+.error-view > .error-toggle:before,
+.error-view > .error:before,
+a.link-external:after {
+	font-family: "tme-fa-icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+}
+[data-icon]:before {
+	content: attr(data-icon);
+}
+[data-icon-before]:before {
+	content: attr(data-icon-before) "\00a0\00a0";
+}
+[data-icon-after]:after {
+	content: "\00a0\00a0" attr(data-icon-after);
+}
+.error-view > .error-toggle:before {
+	content: "\e81a";
+}
+.error-view > .error-toggle.enabled:before {
+	content: "\e818";
+}
+.error-view > .error:before {
+	content: "\e80d\00a0\00a0";
+}
+a.link-external:after {
+	content: "\00a0\e80e";
+}
+/*
+	SugarCube 2.0 Default structural styles.
+*/
+#story {
+	z-index: 10;
+	margin: 2.5em;
+}
+@media screen and (max-width: 1136px) {
+	#story {
+		margin-right: 1.5em;
+	}
+}
+#passages {
+	max-width: 54em;
+	margin: 0 auto;
+}
+
+/*
+	Sugarcube 2.0 core-passage css Default appearance styles.
+*/
+.passage {
+	line-height: 1.75;
+	text-align: left;
+	transition: opacity 400ms ease-in;
+}
+.passage-in {
+	opacity: 0;
+}
+.passage ul, .passage ol {
+	margin-left: 0.5em;
+	padding-left: 1.5em;
+}
+.passage table {
+	margin: 1em 0;
+	border-collapse: collapse;
+	font-size: 100%;
+}
+.passage tr, .passage th, .passage td, .passage caption {
+	padding: 3px;
+}
+
+
+/*
+	SugarCube 2.0 Core-Macro css = Default appearance styles.
+*/
+@keyframes cursor-blink {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.macro-linkappend-insert,
+.macro-linkprepend-insert,
+.macro-linkreplace-insert,
+.macro-append-insert,
+.macro-prepend-insert,
+.macro-replace-insert,
+.macro-repeat-insert,
+.macro-timed-insert {
+	transition: opacity 400ms ease-in;
+}
+.macro-linkappend-in,
+.macro-linkprepend-in,
+.macro-linkreplace-in,
+.macro-append-in,
+.macro-prepend-in,
+.macro-replace-in,
+.macro-repeat-in,
+.macro-timed-in {
+	opacity: 0;
+}
+
+.macro-type-cursor:after {
+	animation: cursor-blink 1s infinite;
+	content: "\2590"; /* "\2588" */
+	opacity: 1;
+}
+
+/*
+	Patches to the core styles.
+*/
+html[data-dialog] body {
+	overflow: hidden;
+}
+
+
+/*
+	Sugarcube 2.0 UI-Dialogue Default structural styles.
+*/
+#ui-overlay.open {
+	visibility: visible;
+	transition: opacity 200ms ease-in;
+}
+#ui-overlay:not(.open) {
+	transition: visibility 200ms step-end, opacity 200ms ease-in;
+}
+#ui-overlay {
+	visibility: hidden;
+	opacity: 0;
+	z-index: 100000;
+	position: fixed;
+	/*
+	top: -50vh;
+	left: -50vw;
+	height: 200vh;
+	width: 200vw;
+	*/
+	top: -50%;
+	left: -50%;
+	height: 200%;
+	width: 200%;
+}
+#ui-dialog.open {
+	display: block;
+	transition: opacity 200ms ease-in;
+}
+/*
+	We do not animate `#ui-dialog:not(.open)` for various reasons.  Chief among
+	them, however, is so that the dialog isn't in the middle of its animation
+	when other page updates happen.
+
+	e.g. The restoration of `overflow` on `body` would cause the still animating
+	     dialog to jump around a little if a scrollbar were to pop in.
+
+	     Any dialog action which performs a task which has its own animations
+	     (e.g. passage display) or causes the page to reload in addition to
+	     closing the dialog could cause display shenanigans.
+*/
+#ui-dialog {
+	display: none;
+	opacity: 0;
+	z-index: 100100;
+	position: fixed;
+	top: 50px;
+	margin: 0;
+	padding: 0;
+}
+#ui-dialog > * {
+	box-sizing: border-box;
+}
+#ui-dialog-titlebar {
+	position: relative;
+}
+#ui-dialog-close {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	white-space: nowrap;
+}
+#ui-dialog-body {
+	overflow: auto;
+	min-width: 280px;
+	height: 92%; /* fallback for browsers without support for calc() */
+	height: calc(100% - 2.1em); /* parent - title(2.1em) */
+}
+
+
+/*
+	Sugarcube 2.0 UI-css Default appearance styles.
+*/
+#ui-overlay {
+	background-color: #000;
+}
+#ui-overlay.open {
+	opacity: 0.8;
+}
+#ui-dialog {
+	max-width: 66em;
+}
+#ui-dialog.open {
+	opacity: 1;
+}
+#ui-dialog-titlebar {
+	background-color: #444;
+	min-height: 24px;
+}
+#ui-dialog-title {
+	margin: 0;
+	padding: 0.2em 3.5em 0.2em 0.5em;
+	font-size: 1.5em;
+	text-align: center;
+	text-transform: uppercase;
+}
+#ui-dialog-close {
+	cursor: pointer;
+	font-size: 120%;
+	margin: 0;
+	padding: 0;
+	width: 3.6em;
+	height: 92%;
+	background-color: transparent;
+	border: 1px solid transparent;
+	transition-duration: 200ms;
+}
+#ui-dialog-close:hover {
+	background-color: #b44;
+	border-color: #d66;
+}
+#ui-dialog-body {
+	background-color: #111;
+	border: 1px solid #444;
+	text-align: left;
+	line-height: 1.5;
+	padding: 1em;
+}
+#ui-dialog-body > *:first-child {
+	margin-top: 0;
+}
+#ui-dialog-body hr {
+	background-color: #444;
+}
+
+/* Default dialog button bar styling. */
+#ui-dialog-body ul.buttons {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#ui-dialog-body ul.buttons li {
+	display: inline-block;
+	margin: 0;
+	padding: 0.4em 0.4em 0 0;
+}
+#ui-dialog-body ul.buttons > li + li > button {
+	margin-left: 1em;
+}
+
+/* Stop text selection on certain UI elements. */
+#ui-dialog-close {
+	user-select: none;
+}
+
+
+/*
+	Default font icon styles.
+*/
+#ui-dialog-close {
+	font-family: "tme-fa-icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+}
+
+/*
+	Default structural styles.
+*/
+/* Settings dialog styling. */
+#ui-dialog-body.settings [id|="setting-body"] > div:first-child {
+	display: table;
+	width: 100%;
+}
+#ui-dialog-body.settings [id|="setting-label"] {
+	display: table-cell;
+	padding: 0.4em 2em 0.4em 0;
+}
+#ui-dialog-body.settings [id|="setting-label"] + div {
+	display: table-cell;
+	min-width: 8em;
+	text-align: right;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+
+/*
+	Built-in dialog appearance styles.
+*/
+/* List-based dialog styling (primarily for the Jumpto & Share dialogs). */
+#ui-dialog-body.list {
+	padding: 0;
+}
+#ui-dialog-body.list ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: 1px solid transparent;
+}
+#ui-dialog-body.list li {
+	margin: 0;
+}
+#ui-dialog-body.list li:not(:first-child) {
+	border-top: 1px solid #444;
+}
+#ui-dialog-body.list li a {
+	display: block;
+	padding: 0.25em 0.75em;
+	border: 1px solid transparent;
+	color: #eee;
+	text-decoration: none;
+}
+#ui-dialog-body.list li a:hover {
+	background-color: #333;
+	border-color: #eee;
+}
+
+/* Saves dialog styling. */
+#ui-dialog-body.saves {
+	padding: 0 0 1px; /* Webkit/Blink need 1px bottom padding or they'll trigger the scroll bar */
+}
+#ui-dialog-body.saves > *:not(:first-child) {
+	border-top: 1px solid #444;
+}
+#ui-dialog-body.saves table {
+	border-spacing: 0;
+	width: 100%;
+}
+#ui-dialog-body.saves tr:not(:first-child) {
+	border-top: 1px solid #444;
+}
+#ui-dialog-body.saves td {
+	padding: 0.33em 0.33em;
+}
+#ui-dialog-body.saves td:first-child {
+	min-width: 1.5em;
+	text-align: center;
+}
+#ui-dialog-body.saves td:nth-child(3) {
+	line-height: 1.2;
+}
+#ui-dialog-body.saves td:last-child {
+	text-align: right;
+}
+#ui-dialog-body.saves .empty {
+	color: #999;
+	speak: none;
+	text-align: center;
+	user-select: none;
+}
+#ui-dialog-body.saves .datestamp {
+	font-size: 75%;
+	margin-left: 1em;
+}
+#ui-dialog-body.saves ul.buttons li {
+	padding: 0.4em;
+}
+#ui-dialog-body.saves ul.buttons > li + li > button {
+	margin-left: 0.2em;
+}
+#ui-dialog-body.saves ul.buttons li:last-child {
+	/*
+		Using `position:absolute;right:0;` here can produce poor results,
+		so we use `float:right` instead.
+	*/
+	float: right;
+}
+
+/* Settings dialog styling. */
+#ui-dialog-body.settings div[id|="header-body"] {
+	margin: 1em 0;
+}
+#ui-dialog-body.settings div[id|="header-body"]:first-child {
+	margin-top: 0;
+}
+#ui-dialog-body.settings div[id|="header-body"]:not(:first-child) {
+	border-top: 1px solid #444;
+	padding-top: 1em;
+}
+#ui-dialog-body.settings div[id|="header-body"] > * {
+	margin: 0;
+}
+#ui-dialog-body.settings h2[id|="header-heading"] {
+	font-size: 1.375em;
+}
+#ui-dialog-body.settings p[id|="header-desc"],
+#ui-dialog-body.settings p[id|="setting-desc"] {
+	font-size: 87.5%;
+	margin: 0 0 0 0.5em;
+}
+#ui-dialog-body.settings div[id|="setting-body"] + div[id|="setting-body"] {
+	margin: 1em 0;
+}
+#ui-dialog-body.settings [id|="setting-control"] {
+	white-space: nowrap;
+}
+#ui-dialog-body.settings button[id|="setting-control"] {
+	color: #eee;
+	background-color: transparent;
+	border: 1px solid #444;
+	padding: 0.4em;
+}
+#ui-dialog-body.settings button[id|="setting-control"]:hover {
+	background-color: #333;
+	border-color: #eee;
+}
+#ui-dialog-body.settings button[id|="setting-control"].enabled {
+	background-color: #282;
+	border-color: #4a4;
+}
+#ui-dialog-body.settings button[id|="setting-control"].enabled:hover {
+	background-color: #4a4;
+	border-color: #6c6;
+}
+#ui-dialog-body.settings input[type="range"][id|="setting-control"] {
+	max-width: 35vw;
+}
+
+/* Stop text selection on certain UI elements. */
+#ui-dialog-body.list a,
+#ui-dialog-body.settings span[id|="setting-input"] {
+	user-select: none;
+}
+
+
+/*
+	Default font icon styles.
+*/
+#ui-dialog-body.saves button[id="saves-export"]:before,
+#ui-dialog-body.saves button[id="saves-import"]:before,
+#ui-dialog-body.saves button[id="saves-clear"]:before,
+#ui-dialog-body.settings button[id|="setting-control"]:after,
+#ui-dialog-body.settings button[id|="setting-control"].enabled:after {
+	font-family: "tme-fa-icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+}
+#ui-dialog-body.saves button[id="saves-export"]:before {
+	content: "\e829\00a0";
+}
+#ui-dialog-body.saves button[id="saves-import"]:before {
+	content: "\e82a\00a0";
+}
+#ui-dialog-body.saves button[id="saves-clear"]:before {
+	content: "\e827\00a0";
+}
+#ui-dialog-body.settings button[id|="setting-control"]:after {
+	content: "\00a0\00a0\e830";
+}
+#ui-dialog-body.settings button[id|="setting-control"].enabled:after {
+	content: "\00a0\00a0\e831";
+}
+
+/*
+	Patches to the core styles.
+*/
+#story {
+	margin-left: 20em;
+	transition: margin-left 200ms ease-in;
+}
+#ui-bar.stowed ~ #story {
+	margin-left: 4.5em;
+}
+@media screen and (max-width: 1136px) {
+	#story {
+		margin-left: 19em;
+	}
+	#ui-bar.stowed ~ #story {
+		margin-left: 3.5em;
+	}
+}
+/*
+	At very narrow viewport widths, set `#story{margin-left}` equal to the value
+	of `#ui-bar.stowed~#story{margin-left}`, so that `#ui-bar` will side over top
+	of `#story` when unstowed, rather than shoving it over.
+*/
+@media screen and (max-width: 768px) {
+	#story {
+		margin-left: 3.5em;
+	}
+}
+
+
+/*
+	SugarCube 2.0 UI-Bar Default structural styles.
+*/
+#ui-bar {
+	position: fixed;
+	z-index: 50;
+	top: 0;
+	left: 0;
+	width: 17.5em;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	transition: left 200ms ease-in;
+}
+#ui-bar.stowed {
+	left: -15.5em;
+}
+#ui-bar-tray {
+	position: absolute;
+	top: 0.2em;
+	left: 0;
+	right: 0;
+}
+#ui-bar-body {
+	height: 90%; /* fallback for browsers without support for calc() */
+	height: calc(100% - 2.5em);
+	margin: 2.5em 0;
+	padding: 0 1.5em;
+}
+#ui-bar.stowed #ui-bar-history,
+#ui-bar.stowed #ui-bar-body {
+	visibility: hidden;
+	transition: visibility 200ms step-end;
+}
+
+
+/*
+	Default appearance styles.
+*/
+#ui-bar {
+	background-color: #222;
+	border-right: 1px solid #444;
+	text-align: center;
+}
+#ui-bar a {
+	text-decoration: none;
+}
+#ui-bar hr {
+	border-color: #444;
+}
+#ui-bar-toggle,
+#ui-bar-history [id|="history"] {
+	font-size: 1.2em;
+	line-height: inherit;
+	color: #eee;
+	background-color: transparent;
+	border: 1px solid #444;
+}
+#ui-bar-toggle {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-right: none;
+	padding: 0.3em 0.45em 0.25em;
+}
+#ui-bar.stowed #ui-bar-toggle {
+	padding: 0.3em 0.35em 0.25em 0.55em;
+}
+#ui-bar-toggle:hover {
+	background-color: #444;
+	border-color: #eee;
+}
+#ui-bar-history {
+	margin: 0 auto;
+}
+#ui-bar-history [id|="history"] {
+	padding: 0.2em 0.45em 0.35em;
+}
+#ui-bar-history #history-jumpto {
+	padding: 0.2em 0.665em 0.35em;
+}
+#ui-bar-history [id|="history"]:not(:first-child) {
+	margin-left: 1.2em;
+}
+#ui-bar-history [id|="history"]:hover {
+	background-color: #444;
+	border-color: #eee;
+}
+#ui-bar-history [id|="history"]:disabled {
+	color: #444;
+	background-color: transparent;
+	border-color: #444;
+}
+#ui-bar-body {
+	line-height: 1.5;
+	overflow: auto;
+}
+#ui-bar-body > :not(:first-child) {
+	margin-top: 2em;
+}
+#story-title {
+	margin: 0;
+	font-size: 162.5%;
+}
+#story-author {
+	margin-top: 2em;
+	font-weight: bold;
+}
+#menu ul {
+	margin: 1em 0 0;
+	padding: 0;
+	list-style: none;
+	border: 1px solid #444;
+}
+#menu ul:empty {
+	display: none;
+}
+#menu li {
+	margin: 0;
+}
+#menu li:not(:first-child) {
+	border-top: 1px solid #444;
+}
+#menu li a {
+	display: block;
+	padding: 0.25em 0.75em;
+	border: 1px solid transparent;
+	color: #eee;
+	text-transform: uppercase;
+}
+#menu li a:hover {
+	background-color: #444;
+	border-color: #eee;
+}
+
+/* Stop text selection on certain UI elements. */
+#ui-bar-history [id|="history"],
+#ui-bar-toggle,
+#menu a {
+	user-select: none;
+}
+
+
+/*
+	Default font icon styles.
+*/
+#ui-bar-toggle:before,
+#ui-bar-history [id|="history"],
+#menu-core li[id|="menu-item"] a:before {
+	font-family: "tme-fa-icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+}
+#ui-bar-toggle:before {
+	content: "\e81d";
+}
+#ui-bar.stowed #ui-bar-toggle:before {
+	content: "\e81e";
+}
+#menu-item-saves a:before {
+	content: "\e82b\00a0";
+}
+#menu-item-settings a:before {
+	content: "\e82d\00a0";
+}
+#menu-item-restart a:before {
+	content: "\e82c\00a0";
+}
+#menu-item-share a:before {
+	content: "\e82f\00a0";
+}

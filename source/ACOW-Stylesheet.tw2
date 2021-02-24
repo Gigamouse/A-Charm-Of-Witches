@@ -1,9 +1,109 @@
 ::ACOW Stylesheet [stylesheet]
 
-body {
-  background: #eee;
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+
+
+
+/*
+	SugarCube 2.0 Default structural styles.
+*/
+html {
+	/*
+		We define the base font size and line height here as they affect the layout
+		of the base page elements (i.e. `#ui-bar`, `#ui-dialog`, and `#story`).
+	*/
+	font: 16px/1 Helmet, Freesans, sans-serif;
 }
 
-tw-passage tw-link {
-  color: red;
+
+/*
+	Sugarcube 2.0 Display Default appearance styles.
+*/
+body {
+	color: black;
+	background-color: white;
+	overflow: auto;
+}
+a {
+	cursor: pointer;
+	color: green;
+	text-decoration: none;
+	transition-duration: 200ms;
+}
+a:hover {
+	color: black;
+	text-decoration: underline;
+}
+a.link-broken {
+	color: red;
+}
+a.link-broken:hover {
+	color: black;
+}
+a[disabled], span.link-disabled {
+	color: blue;
+	cursor: not-allowed !important;
+	text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	color:#000;
+}
+
+#ui-bar h1 {
+	color:white!important;
+	font-family: 'Berkshire Swash', cursive;
+}
+.passage[data-tags~="intro"] h1{
+	text-align:center;
+	font-size:2.5em;
+	font-family: 'Berkshire Swash', cursive;
+}
+
+/*SWITCHABLE THEMES*/
+
+html.theme-bright-lights body {
+	background-color: #000000;
+    background: url("images/blue.png");
+    background-attachment: fixed;
+    background-repeat: repeat;
+}
+
+html.theme-bright-lights .passage {
+    line-height: 1.0;
+    font-family: 'Alegreya', serif;
+    font-color: #FFFAFA;
+	font-size: 21px;
+	text-align: justify;
+	transition: opacity 400ms ease-in;
+	background-color: rgba(47, 79, 79, 0.5);
+	border-radius: 25px;
+	padding: 25px;
+
+}
+
+html.theme-charcoal body {
+	background-color: #000000;
+	background: url("images/stars.png");
+	background-attachment: fixed;
+	background-repeat: repeat;
+}
+
+html.theme-charcoal .passage {
+	line-height: 1.0;
+	font-family: 'Turret Road', cursive;
+	font-color: #FFFAFA;
+	font-size: 30px;
+	text-align: justify;
+	transition: opacity 400ms ease-in;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 25px;
+	padding: 25px;
+}
+
+html.font-alegreya {
+	font-family: 'Alegreya', serif;  
+}
+
+html.font-karla {
+	font-family: 'Karla', sans-serif;  
 }
