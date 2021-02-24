@@ -32,18 +32,21 @@ Setting.addList("theme", {
 
 
 //Changing of Fonts
-var settingFontNames = ["Default", "Alegreya", "Karla"];
+var settingFontNames = ["Default", "Comic Sans", "Verdana", "OpenDyslexic"];
 var settingFontHandler = function () {
     var $html = $("html");
 
-    $html.removeClass("font-alegreya font-karla");
+    $html.removeClass("font-comicsans font-verdana font-opendyslexic");
 
-	switch (settings.theme) {
-    case "Alegreya":
-        $html.addClass("font-alegreya");
+	switch (settings.font) {
+    case "ComicSans":
+        $html.addClass("comicsans");
         break;
-    case "Karla":
-        $html.addClass("karla");
+    case "Verdana":
+        $html.addClass("verdana");
+        break;
+    case "OpenDyslexic":
+        $html.addClass("opendyslexic");
         break;
     }
 };
@@ -53,6 +56,8 @@ list     : settingFontNames,
 onInit   : settingFontHandler,
 onChange : settingFontHandler
 });
+
+
 
 //Change Font Size
 var settingFontSizeNames = ["Default", "Medium", "Large"];

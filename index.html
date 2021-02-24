@@ -99,7 +99,10 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
 	<!-- UUID://BAA3E610-704A-4549-99D7-D656FB542A8F// --><tw-storydata name="A Charm of Witches" startnode="1" creator="Tweego" creator-version="2.1.1+81d1d71" ifid="BAA3E610-704A-4549-99D7-D656FB542A8F" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
-
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('assets/fonts/OpenDyslexic3-Regular.ttf');
+}
 
 
 /*
@@ -110,7 +113,8 @@ html {
 		We define the base font size and line height here as they affect the layout
 		of the base page elements (i.e. `#ui-bar`, `#ui-dialog`, and `#story`).
 	*/
-	font: 16px/1 Helmet, Freesans, sans-serif;
+	font: 16px/1;
+	font-family: 'Trebuchet MS', sans-serif;
 }
 
 
@@ -168,7 +172,6 @@ html.theme-bright-lights body {
 
 html.theme-bright-lights .passage {
     line-height: 1.0;
-    font-family: 'Alegreya', serif;
     font-color: #FFFAFA;
 	font-size: 21px;
 	text-align: justify;
@@ -188,7 +191,6 @@ html.theme-charcoal body {
 
 html.theme-charcoal .passage {
 	line-height: 1.0;
-	font-family: 'Turret Road', cursive;
 	font-color: #FFFAFA;
 	font-size: 30px;
 	text-align: justify;
@@ -200,21 +202,24 @@ html.theme-charcoal .passage {
 
 /* FONT SWITCHES */
 
-html.font-alegreya {
-	font-family: 'Alegreya', serif;  
+html.comicsans .passage {
+	font-family: 'comic sans', cursive;  
+}
+html.verdana .passage {
+	font-family: 'Verdana', sans-serif;  
 }
 
-html.font-karla {
-	font-family: 'Karla', sans-serif;  
+html.opendyslexic .passage {
+	font-family: 'OpenDyslexic', serif;  
 }
 
 /* FONT SIZE SWITCHES */
 html.fontsize-medium .passage{
-	font-size: 2em;  
+	font-size: 1.5em;  
 }
 
 html.fontsize-large .passage{
-	font-size: 3em;  
+	font-size: 2em;  
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Setting up a list control for the settings property 'theme' w/ callbacks
 var settingThemeNames = ["(none)", "Bright Lights", "Charcoal", "Midnight", "Tinsel City"];
 var settingThemeHandler = function () {
@@ -249,18 +254,21 @@ Setting.addList("theme", {
 
 
 //Changing of Fonts
-var settingFontNames = ["Default", "Alegreya", "Karla"];
+var settingFontNames = ["Default", "Comic Sans", "Verdana", "OpenDyslexic"];
 var settingFontHandler = function () {
     var $html = $("html");
 
-    $html.removeClass("font-alegreya font-karla");
+    $html.removeClass("font-comicsans font-verdana font-opendyslexic");
 
-	switch (settings.theme) {
-    case "Alegreya":
-        $html.addClass("font-alegreya");
+	switch (settings.font) {
+    case "ComicSans":
+        $html.addClass("comicsans");
         break;
-    case "Karla":
-        $html.addClass("karla");
+    case "Verdana":
+        $html.addClass("verdana");
+        break;
+    case "OpenDyslexic":
+        $html.addClass("opendyslexic");
         break;
     }
 };
@@ -270,6 +278,8 @@ list     : settingFontNames,
 onInit   : settingFontHandler,
 onChange : settingFontHandler
 });
+
+
 
 //Change Font Size
 var settingFontSizeNames = ["Default", "Medium", "Large"];
