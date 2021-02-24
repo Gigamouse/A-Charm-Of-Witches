@@ -104,8 +104,8 @@ html.theme-charcoal .passage {
 
 /* FONT SWITCHES */
 
-html.comicsans .passage {
-	font-family: 'Comic Sans', cursive;  
+html.arial .passage {
+	font-family: 'Arial', sans-serif;  
 }
 html.verdana .passage {
 	font-family: 'Verdana', sans-serif;  

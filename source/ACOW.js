@@ -32,19 +32,23 @@ Setting.addList("theme", {
 
 
 //Changing of Fonts
-var settingFontNames = ["Default", "Comic Sans", "Verdana", "OpenDyslexic"];
+var settingFontNames = ["Default", "Arial", "Verdana", "OpenDyslexic"];
 var settingFontHandler = function () {
     var $html = $("html");
 
-    $html.removeClass("font-comicsans font-verdana font-opendyslexic");
+    $html.removeClass("arial verdana opendyslexic");
 
 	switch (settings.font) {
-    case "ComicSans":
-        $html.addClass("comicsans");
+    case "Arial":
+        $html.addClass("arial");
         break;
+    }
+    switch (settings.font) {
     case "Verdana":
         $html.addClass("verdana");
         break;
+    }
+    switch (settings.font) {
     case "OpenDyslexic":
         $html.addClass("opendyslexic");
         break;
