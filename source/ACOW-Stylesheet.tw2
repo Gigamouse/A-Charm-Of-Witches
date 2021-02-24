@@ -100,6 +100,8 @@ html.theme-charcoal .passage {
 	padding: 25px;
 }
 
+/* FONT SWITCHES */
+
 html.font-alegreya {
 	font-family: 'Alegreya', serif;  
 }
@@ -107,3 +109,12 @@ html.font-alegreya {
 html.font-karla {
 	font-family: 'Karla', sans-serif;  
 }
+
+/* FONT SIZE SWITCHES */
+html.fontsize-medium .passage{
+	font-size: 2em;  
+}
+
+html.fontsize-large .passage{
+	font-size: 3em;  
+} 

@@ -198,12 +198,23 @@ html.theme-charcoal .passage {
 	padding: 25px;
 }
 
+/* FONT SWITCHES */
+
 html.font-alegreya {
 	font-family: 'Alegreya', serif;  
 }
 
 html.font-karla {
 	font-family: 'Karla', sans-serif;  
+}
+
+/* FONT SIZE SWITCHES */
+html.fontsize-medium .passage{
+	font-size: 2em;  
+}
+
+html.fontsize-large .passage{
+	font-size: 3em;  
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Setting up a list control for the settings property 'theme' w/ callbacks
 var settingThemeNames = ["(none)", "Bright Lights", "Charcoal", "Midnight", "Tinsel City"];
 var settingThemeHandler = function () {
@@ -259,6 +270,29 @@ list     : settingFontNames,
 onInit   : settingFontHandler,
 onChange : settingFontHandler
 });
+
+//Change Font Size
+var settingFontSizeNames = ["Default", "Medium", "Large"];
+var settingFontSizeHandler = function () {
+var $html = $("html");
+
+    $html.removeClass("fontsize-medium fontsize-large fontsize-very-large");
+
+    switch (settings.fontsize) {
+    case "Medium":
+        $html.addClass("fontsize-medium");
+        break;
+    case "Large":
+        $html.addClass("fontsize-large");
+        break;
+}
+};
+Setting.addList("fontsize", {
+label    : "Change the font size",
+list     : settingFontSizeNames,
+onInit   : settingFontSizeHandler,
+onChange : settingFontSizeHandler
+}); 
 </script><tw-passagedata pid="1" name="Start" tags="intro" position="100,100" size="100,100">!A Charm of Witches
 Following the mysterious deaths of your parents, you’re shipped to the border of the known world to live with your estranged maternal grandmother. On the way there, an attack by a dark Fae entity brings you face to face with all the things your mother tried to keep hidden from you: the truth of your heritage, the danger she fled her homeland to escape, and the assassin sent to track her down. The same assassin whose attention has now turned toward you. 
 Train up your natural magical gifts, learn alchemy, and discover all the secrets of your family’s past when you’re inducted into the local coven of witches; and do it all before your mother’s murderer catches up with you. 

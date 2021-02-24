@@ -53,3 +53,26 @@ list     : settingFontNames,
 onInit   : settingFontHandler,
 onChange : settingFontHandler
 });
+
+//Change Font Size
+var settingFontSizeNames = ["Default", "Medium", "Large"];
+var settingFontSizeHandler = function () {
+var $html = $("html");
+
+    $html.removeClass("fontsize-medium fontsize-large fontsize-very-large");
+
+    switch (settings.fontsize) {
+    case "Medium":
+        $html.addClass("fontsize-medium");
+        break;
+    case "Large":
+        $html.addClass("fontsize-large");
+        break;
+}
+};
+Setting.addList("fontsize", {
+label    : "Change the font size",
+list     : settingFontSizeNames,
+onInit   : settingFontSizeHandler,
+onChange : settingFontSizeHandler
+}); 
