@@ -1,0 +1,9 @@
+::MyCoolStylesheet [stylesheet]
+
+body {
+  background: #eee;
+}
+
+tw-passage tw-link {
+  color: red;
+}
